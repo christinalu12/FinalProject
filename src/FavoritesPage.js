@@ -1,12 +1,13 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const FavoritesPage = ({ favoriteAlbums }) => {
-    return (
-      <div>
+  return (
+    <div>
         <h1>My Favorites</h1>
-        {favoriteAlbums.length > 0 ? (
+        {favoriteAlbums && favoriteAlbums.length > 0 ? (
           favoriteAlbums.map((album) => (
             <Card key={album.id}>
               <Card.Body>
@@ -20,7 +21,10 @@ const FavoritesPage = ({ favoriteAlbums }) => {
         )}
         <Link to="/cataloguepage">Go back to Catalogue</Link>
       </div>
-    );
-  };
-  
-  export default FavoritesPage;
+  );
+};
+
+export default FavoritesPage;
+
+
+

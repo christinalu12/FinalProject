@@ -12,9 +12,9 @@ const App = () => {
       <Navbar />
       <Container>
         <Switch>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/CataloguePage" element={<CataloguePage />} />
-          <Route path="/FavoritesPage" element={<FavoritesPage />} />
+          <Route exact path="/" component={HomePage} />
+          <Route path="/cataloguepage" component={CataloguePage} />
+          <Route path="/favoritespage" component={FavoritesPage} />
         </Switch>
       </Container>
     </Router>
@@ -22,3 +22,4 @@ const App = () => {
 };
 
 export default App;
+

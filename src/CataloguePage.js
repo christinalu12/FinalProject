@@ -7,7 +7,7 @@ const CataloguePage = () => {
   useEffect(() => {
     fetchAlbums()
       .then((data) => setAlbums(data))
-      .catch((error) => console.log(error.message)); // Handle the error here
+      .catch((error) => console.log(error.message));
   }, []);
 
   const fetchAlbums = async () => {
