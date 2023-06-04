@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import FavoritesList from './FavoritesList';
 
-const CataloguePage = () => {
+const CataloguePage = ({ handleAddToFavorites }) => {
   const [albums, setAlbums] = useState([]);
+  const [favoriteAlbums, setFavoriteAlbums] = useState([]);
 
   useEffect(() => {
     fetchAlbums()
@@ -19,14 +21,28 @@ const CataloguePage = () => {
     return data;
   };
 
+  const addToFavorites = (album) => {
+    handleAddToFavorites(album.id);
+    setFavoriteAlbums((prevFavorites) => [...prevFavorites, album]);
+  };
+
+  const handleRemoveFavorite = (albumId) => {
+    setFavoriteAlbums((prevFavorites) =>
+      prevFavorites.filter((album) => album.id !== albumId)
+    );
+  };
+
   return (
     <div>
       <h1>Catalogue</h1>
+      <FavoritesList favoriteAlbums={favoriteAlbums} onRemoveFavorite={handleRemoveFavorite} />
       {albums.map(({ id, title }) => (
         <Card key={id}>
           <Card.Body>
             <Card.Title>{title}</Card.Title>
-            <Button>Add to Favorites</Button>
+            <button onClick={() => addToFavorites({ id, title })}>
+              Add to Favorites
+            </button>
           </Card.Body>
         </Card>
       ))}
@@ -35,3 +51,15 @@ const CataloguePage = () => {
 };
 
 export default CataloguePage;
+
+
+
+
+
+
+
+
+
+
+
+

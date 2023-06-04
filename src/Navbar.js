@@ -1,14 +1,14 @@
 import React from 'react';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 
 const CustomNavbar = () => {
   return (
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="HomePage">Album List</Navbar.Brand>
+    <Navbar class='navbar' className='grid'>
+      <Navbar.Brand className='homelink' href="HomePage">Album List</Navbar.Brand>
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link href="CataloguePage">Albums</Nav.Link>
-          <Nav.Link href="FavoritesPage">Favorites</Nav.Link>
+        <Nav>
+          <Nav.Link className='navlink' href="CataloguePage">Albums</Nav.Link>
+          <Nav.Link className='navlink' href="ContactUs">Contact</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
